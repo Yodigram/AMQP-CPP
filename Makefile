@@ -2,12 +2,13 @@ PREFIX                  = /usr
 INCLUDE_DIR             = ${PREFIX}/include
 LIBRARY_DIR             = ${PREFIX}/lib
 export LIBRARY_NAME		= amqpcpp
-export SONAME			= 2.2
-export VERSION			= 2.2.3
+export SONAME			= 2.3
+export VERSION			= 2.3.0
 
 all:
 		$(MAKE) -C src all
-
+		cp -f src/lib$(LIBRARY_NAME).a.$(VERSION) ./lib$(LIBRARY_NAME).a
+		cp -f src/lib$(LIBRARY_NAME).so.$(VERSION) ./lib$(LIBRARY_NAME).so
 pure:
 		$(MAKE) -C src pure
 
@@ -25,6 +26,8 @@ static_fpic:
 
 clean:
 		$(MAKE) -C src clean
+		find . -iname "*.a" -exec rm -rf {} \;
+		find . -iname "*.so" -exec rm -rf {} \;
 
 install:
 		mkdir -p ${INCLUDE_DIR}/$(LIBRARY_NAME)
