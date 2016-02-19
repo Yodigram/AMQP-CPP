@@ -89,4 +89,10 @@ transactionrollbackokframe.h
 transactionselectframe.h
 transactionselectokframe.h
 watchable.cpp
+tcpconnected.h
+tcpclosed.h
+tcpstate.h
+tcpresolver.h
+tcpbuffer.h
+tcpconnection.cpp
 )
