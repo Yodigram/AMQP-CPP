@@ -6,6 +6,9 @@ project(amqp-cpp)
 include(set_cxx_norm.cmake)
 set_cxx_norm (${CXX_NORM_CXX11})
 
+# fpic modification
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+
 macro (add_sources)
     file (RELATIVE_PATH _relPath "${PROJECT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}")
     foreach (_src ${ARGN})
